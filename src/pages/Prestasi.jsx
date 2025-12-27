@@ -198,9 +198,9 @@ const Prestasi = () => {
             </p>
 
             {/* Filter */}
-            <div className="flex gap-4 mb-10 text-sm">
+            <div className="flex items-center gap-4 mb-10 text-sm">
               <span className="font-semibold text-gray-500 dark:text-gray-400">
-                Filter:
+                <i class="ri-equalizer-line text-xl"></i>
               </span>
               {categories.map((cat) => (
                 <button

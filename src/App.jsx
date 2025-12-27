@@ -11,6 +11,7 @@ import Prestasi from "./pages/Prestasi";
 import Berita from "./pages/Berita/Berita";
 import Detail from "./pages/Berita/DetailBerita";
 import Pengumuman from "./pages/Berita/Pengumuman";
+import DetailPengumuman from "./pages/Berita/DetailPengumuman";
 import Dekan from "./pages/Dekan";
 import Fasilitas from "./pages/FasilitasFakultas";
 import Kalender from "./pages/Kalender";
@@ -41,7 +42,10 @@ const App = () => {
 
       <Route path="/berita/berita-fkip" element={<Berita />} />
       <Route path="/berita/detail/:id" element={<Detail />} />
+
       <Route path="/berita/berita-fkip/pengumuman" element={<Pengumuman />} />
+      <Route path="/berita/berita-fkip/pengumuman/:id" element={<DetailPengumuman />} />
+
       <Route path="/dekan" element={<Dekan />} />
       <Route path="/fasilitas-fkip" element={<Fasilitas />} />
       <Route path="/akademik/kalender-akademik-fkip" element={<Kalender />} />

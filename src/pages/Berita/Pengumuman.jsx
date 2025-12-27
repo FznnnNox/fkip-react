@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import api from "../../api";
@@ -74,11 +75,17 @@ const Pengumuman = () => {
                     />
                   </div>
 
-                  <a href="#">
+                  {/* <a href="#">
                     <h2 className="text-lg font-semibold mt-4 dark:text-white hover:text-blue-600 transition">
                       {item.title}
                     </h2>
-                  </a>
+                  </a> */}
+                  <Link to={`/berita/berita-fkip/pengumuman/${item.id}`}>
+  <h2 className="text-lg font-semibold mt-4 hover:text-blue-600 transition">
+    {item.title}
+  </h2>
+</Link>
+
 
                   <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-3">
                     <span>

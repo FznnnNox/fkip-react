@@ -24,6 +24,7 @@ const NewsSkeleton = () => (
 const Berita = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     api
@@ -38,6 +39,26 @@ const Berita = () => {
         setLoading(false);
       });
   }, []);
+
+  // Logic Filter
+  const categories = [
+    "All",
+    "Umum",
+    "Pengumuman",
+    "PMB",
+    "Kegiatan",
+    "Hari Peringatan",
+  ];
+
+  const filteredData =
+    selectedCategory === "All"
+      ? news
+      : news.filter(
+          (item) =>
+            item.category &&
+            item.category.toLowerCase() ===
+              selectedCategory.toLowerCase()
+        );
 
   return (
     <>
@@ -54,18 +75,24 @@ const Berita = () => {
             mengenai kegiatan Sekolah.
           </p>
 
-          {/* Filter (static) */}
-          <div className="flex gap-4 mb-10 text-sm">
-            <span className="font-semibold text-gray-500 dark:text-gray-400">
-              Filter:
-            </span>
-            <button className="text-blue-600 font-semibold">All</button>
-            <button className="text-gray-500 dark:text-gray-400 hover:text-blue-500">General</button>
-            <button className="text-gray-500 dark:text-gray-400 hover:text-blue-500">PPDB</button>
-            <button className="text-gray-500 dark:text-gray-400 hover:text-blue-500">Event</button>
-            <button className="text-gray-500 dark:text-gray-400 hover:text-blue-500">Hari Peringatan</button>
-            <button className="text-gray-500 dark:text-gray-400 hover:text-blue-500">Kesiswaan</button>
-          </div>
+          <div className="flex items-center gap-4 mb-10 text-sm">
+              <span className="font-semibold text-gray-500 dark:text-gray-400">
+                <i class="ri-equalizer-line text-xl"></i>
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3 py-1 rounded font-semibold transition-colors ${
+                    selectedCategory === cat
+                      ? "bg-blue-600 text-white"
+                      : "text-gray-500 dark:text-gray-400 hover:text-blue-500"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           
           {loading ? (
             <div className="grid md:grid-cols-3 gap-10">
@@ -73,9 +100,9 @@ const Berita = () => {
                 <NewsSkeleton key={index} />
               ))}
             </div>
-          ) : news.length > 0 ? (
+          ) : filteredData.length > 0 ? (
             <div className="grid md:grid-cols-3 gap-10">
-              {news.map((item, index) => (
+              {filteredData.map((item, index) => (
                 <div className="flex h-full flex-col" key={index}>
                 <Link to={`/berita/detail/${item.id}`} className="block">
                   <div className="w-full overflow-hidden rounded-lg">

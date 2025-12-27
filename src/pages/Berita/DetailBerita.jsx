@@ -1,137 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-// import Navbar from "../../components/Navbar";
-// import Footer from "../../components/Footer";
-// import api from "../../api";
-
-// const DetailBerita = () => {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-
-//   const [news, setNews] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     api
-//       .get(`/news/${id}`)
-//       .then((res) => setNews(res.data.data))
-//       .catch((err) => console.log("Gagal ambil detail berita:", err))
-//       .finally(() => setLoading(false));
-//   }, [id]);
-
-//   // Skeleton component
-//   const Skeleton = () => (
-//     <div className="py-32 container mx-auto max-w-5xl px-4 animate-pulse">
-//       <div className="h-8 bg-gray-300 rounded w-1/3 mb-6"></div> {/* judul */}
-//       <div className="flex gap-3 mb-6">
-//         <div className="h-4 bg-gray-300 rounded w-1/6"></div>
-//         <div className="h-4 bg-gray-300 rounded w-1/6"></div>
-//       </div>
-//       <div className="h-64 bg-gray-300 rounded mb-6"></div> {/* thumbnail */}
-//       <div className="space-y-3">
-//         <div className="h-4 bg-gray-300 rounded w-full"></div>
-//         <div className="h-4 bg-gray-300 rounded w-5/6"></div>
-//         <div className="h-4 bg-gray-300 rounded w-4/6"></div>
-//         <div className="h-4 bg-gray-300 rounded w-3/6"></div>
-//       </div>
-//     </div>
-//   );
-
-//   if (loading) {
-//     return (
-//       <>
-//         <Navbar />
-//         <Skeleton />
-//         <Footer />
-//       </>
-//     );
-//   }
-
-//   if (!news) {
-//     return (
-//       <>
-//         <Navbar />
-//         <div className="py-40 text-center">
-//           <p className="text-red-500">Berita tidak ditemukan.</p>
-//           <button
-//             className="mt-4 px-5 py-2 bg-blue-600 text-white rounded"
-//             onClick={() => navigate(-1)}
-//           >
-//             Kembali
-//           </button>
-//         </div>
-//         <Footer />
-//       </>
-//     );
-//   }
-
-//   return (
-//     <>
-//       <Navbar />
-
-//       <div className="py-32">
-//         <div className="container mx-auto max-w-5xl px-4">
-//           <button
-//             onClick={() => navigate(-1)}
-//             className="no-underline flex items-center gap-1 mb-4 text-blue-600 hover:underline"
-//           >
-//             <i className="ri-arrow-left-s-line"></i>
-//             Kembali
-//           </button>
-
-//           <h1 className="text-3xl font-bold mb-5 border-l-4 border-blue-600 pl-4">
-//             {news.title}
-//           </h1>
-
-//           <div className="flex flex-wrap gap-3 text-sm text-gray-500 mb-6">
-//             {news.category && (
-//               <span className="flex items-center gap-1">
-//                 <i className="ri-folder-5-fill"></i>
-//                 {news.category}
-//               </span>
-//             )}
-//             <span>•</span>
-//             <span className="flex items-center gap-1">
-//               <i className="ri-calendar-todo-fill"></i>
-//               {new Date(news.created_at).toLocaleDateString("id-ID", {
-//                 year: "numeric",
-//                 month: "long",
-//                 day: "numeric",
-//               })}
-//             </span>
-//           </div>
-
-//           {news.thumbnail && (
-//             <img
-//               src={`http://fkip-dash.test/storage/${news.thumbnail}`}
-//               alt={news.title}
-//               className="rounded-lg shadow mb-6 w-full cover"
-//             />
-//           )}
-
-//           <div
-//             className="prose text-justify max-w-none leading-relaxed"
-//             dangerouslySetInnerHTML={{ __html: news.content }}
-//           />
-
-//           <div className="mt-8 text-sm text-gray-500 space-y-1">
-//             <p>
-//               Penulis: <span className="text-gray-800">{news.author ?? "Admin"}</span>
-//             </p>
-//             <p>
-//               Sumber Eksternal: <span className="text-gray-800">{news.source ?? "-"}</span>
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default DetailBerita;
-
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -257,14 +123,14 @@ const DetailBerita = () => {
             dangerouslySetInnerHTML={{ __html: news.content }}
           />
 
-          <div className="mt-8 text-sm text-gray-500 space-y-1">
+          <div className="mt-8 text-sm space-y-1">
             <p>
               Penulis:{" "}
-              <span className="text-gray-800">{news.author ?? "Admin"}</span>
+              <span>{news.author ?? "Admin"}</span>
             </p>
             <p>
               Sumber Eksternal:{" "}
-              <span className="text-gray-800">{news.source ?? "-"}</span>
+              <span>{news.source ?? "-"}</span>
             </p>
           </div>
 

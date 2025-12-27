@@ -16,48 +16,25 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import Typed from "typed.js";
 
-// const AboutSkeleton = () => (
-//   <section className="flex flex-col md:flex-row items-center justify-between max-w-screen-xl mx-auto px-8 md:px-20 py-24 gap-20 animate-pulse">
-//     {/* Image Skeleton */}
-//     <div className="md:w-1/2 flex justify-center mb-10 md:mb-0 relative">
-//       <div className="rounded-2xl shadow-2xl w-[500px] h-[500px] bg-gray-400 dark:bg-gray-600"></div>
-//     </div>
-
+// const DekanSkeleton = () => (
+//   <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20 animate-pulse">
 //     {/* Content Skeleton */}
 //     <div className="md:w-1/2">
-//       <div className="h-4 w-24 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
-//       <div className="h-8 w-3/4 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
-//       <div className="space-y-3">
-//         <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-//         <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
-//         <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-//         <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
+//       <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
+//       <div className="h-8 w-3/5 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
+//       <div className="space-y-4">
+//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
+//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
+//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
 //       </div>
 //       <div className="h-4 w-36 bg-blue-400 rounded-full mt-6"></div>
 //     </div>
+//     <div className="md:w-1/2 flex justify-center mb-10 md:mb-0">
+//       <div className="rounded-2xl shadow-2xl w-[400px] md:w-[420px] h-[400px] bg-gray-400 dark:bg-gray-600"></div>
+//     </div>
 //   </section>
 // );
-
-const DekanSkeleton = () => (
-  <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20 animate-pulse">
-    {/* Content Skeleton */}
-    <div className="md:w-1/2">
-      <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
-      <div className="h-8 w-3/5 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
-      <div className="space-y-4">
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-      </div>
-      <div className="h-4 w-36 bg-blue-400 rounded-full mt-6"></div>
-    </div>
-    {/* Image Skeleton */}
-    <div className="md:w-1/2 flex justify-center mb-10 md:mb-0">
-      <div className="rounded-2xl shadow-2xl w-[400px] md:w-[420px] h-[400px] bg-gray-400 dark:bg-gray-600"></div>
-    </div>
-  </section>
-);
 
 const NewsSkeleton = () => (
   <section className="py-16 px-6 md:px-20 dark:bg-gray-900 animate-pulse">
@@ -92,13 +69,15 @@ const PartnerSkeleton = () => (
 
 const App = () => {
   // const [about, setAbout] = useState(null);
-  const [dekan, setDekan] = useState(null);
+  // const [dekan, setDekan] = useState(null);
   const [news, setNews] = useState([]);
   const [docs, setDocs] = useState([]);
   const [partners, setPartners] = useState([]);
 
-  // const [loadingAbout, setLoadingAbout] = useState(true);
-  const [loadingDekan, setLoadingDekan] = useState(true);
+  // Load More
+  const [visibleDocs, setVisibleDocs] = useState(6);
+
+  // const [loadingDekan, setLoadingDekan] = useState(true);
   const [loadingNews, setLoadingNews] = useState(true);
   const [loadingDocs, setLoadingDocs] = useState(true);
   const [loadingPartners, setLoadingPartners] = useState(true);
@@ -122,20 +101,20 @@ const App = () => {
   // }, []);
 
   // Get Dekan
-  useEffect(() => {
-    setLoadingDekan(true);
-    api
-      .get("/dekan")
-      .then((res) => {
-        setDekan(res.data.data);
-      })
-      .catch((err) => {
-        console.error("Gagal fetch API:", err);
-      })
-      .finally(() => {
-        setLoadingDekan(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setLoadingDekan(true);
+  //   api
+  //     .get("/dekan")
+  //     .then((res) => {
+  //       setDekan(res.data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error("Gagal fetch API:", err);
+  //     })
+  //     .finally(() => {
+  //       setLoadingDekan(false);
+  //     });
+  // }, []);
 
   // Get News Fakultas
   useEffect(() => {
@@ -288,7 +267,7 @@ const App = () => {
 
       <section className="relative w-full overflow-hidden home-bg">
         <div className="blob blob-1"></div>
-      <div className="blob blob-2"></div>
+        <div className="blob blob-2"></div>
       </section>
 
       <section className="w-full bg-[#003fc7] flex justify-center">
@@ -302,7 +281,10 @@ const App = () => {
       {loadingNews ? (
         <NewsSkeleton />
       ) : news.length > 0 ? (
-        <section className="relative py-16 px-6 md:px-20 dark:bg-gray-900" data-aos="fade-up">
+        <section
+          className="relative py-16 px-6 md:px-20 dark:bg-gray-900"
+          data-aos="fade-up"
+        >
           <div className="absolute top-4 right-4 opacity-25 animate-float-slow blur-[1px]">
             <svg
               width="140"
@@ -320,68 +302,69 @@ const App = () => {
           </div>
           <p className="text-blue-400 mb-4 font-bold">- BERITA</p>
           <h2 className="text-3xl md:text-3xl font-extrabold text-gray-900 dark-mode-text mb-6">
-            BERITA TERBARU FKIP <span className="font-extralight">UNIVERSITAS</span>{" "}
-            BANTEN JAYA
+            BERITA TERBARU FKIP{" "}
+            <span className="font-extralight">UNIVERSITAS</span> BANTEN JAYA
           </h2>
 
           <div data-aos="fade-up" data-aos-delay="200">
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={3}
-            loop={true}
-            autoplay={{ delay: 4000 }}
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {news &&
-              news.length > 0 &&
-              news.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <div className="relative group overflow-hidden rounded-lg">
-                    <img
-                      src={`http://fkip-dash.test/storage/${item.thumbnail}`}
-                      alt={item.title}
-                      className="w-full h-56 rounded-lg object-cover mb-4 transition-transform duration-500 group-hover:scale-110"
-                    />
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={3}
+              loop={true}
+              autoplay={{ delay: 4000 }}
+              breakpoints={{
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+            >
+              {news &&
+                news.length > 0 &&
+                news.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="relative group overflow-hidden rounded-lg">
+                      <img
+                        src={`http://fkip-dash.test/storage/${item.thumbnail}`}
+                        alt={item.title}
+                        className="w-full h-56 rounded-lg object-cover mb-4 transition-transform duration-500 group-hover:scale-110"
+                      />
 
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                      <Link
-                        to={`/berita/detail/${item.id}`}
-                        className="text-white text-lg font-semibold border border-white/70 px-4 py-2 rounded-lg hover:bg-white/20 transition"
-                      >
-                        Baca Selengkapnya
-                      </Link>
+                      <div className="absolute inset-0 bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <Link
+                          to={`/berita/detail/${item.id}`}
+                          className="text-white text-lg font-semibold border border-white/70 px-4 py-2 rounded-lg hover:bg-white/20 transition"
+                        >
+                          Baca Selengkapnya
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <Link to={`/berita/detail/${item.id}`}>
-                    <h3 className="text-base capitalize font-normal dark-mode-text hover:text-blue-600 cursor-pointer transition mt-4 mb-4">
-                      {item.title}
-                    </h3>
-                  </Link>
 
-                  <p className="dark-mode-text text-sm mt-2 flex items-center gap-2">
-                    <i className="ri-calendar-2-line"></i>
-                    {new Date(item.created_at).toLocaleDateString("id-ID", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    <Link to={`/berita/detail/${item.id}`}>
+                      <h3 className="text-base capitalize font-normal dark-mode-text hover:text-blue-600 cursor-pointer transition mt-4 mb-4">
+                        {item.title}
+                      </h3>
+                    </Link>
 
-                    {item.category && (
-                      <>
-                        <span className="mx-2">•</span>
-                        <i className="ri-price-tag-3-line"></i> {item.category}
-                      </>
-                    )}
-                  </p>
-                </SwiperSlide>
-              ))}
-          </Swiper>
+                    <p className="dark-mode-text text-sm mt-2 flex items-center gap-2">
+                      <i className="ri-calendar-2-line"></i>
+                      {new Date(item.created_at).toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+
+                      {item.category && (
+                        <>
+                          <span className="mx-2">•</span>
+                          <i className="ri-price-tag-3-line"></i>{" "}
+                          {item.category}
+                        </>
+                      )}
+                    </p>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
           </div>
         </section>
       ) : (
@@ -393,16 +376,24 @@ const App = () => {
         </div>
       )}
 
-      <section className="py-16 px-6 md:px-20 dark:bg-gray-900" data-aos="fade-up">
+      <section
+        className="py-16 px-6 md:px-20 dark:bg-gray-900"
+        data-aos="fade-up"
+      >
         <p className="text-blue-400 mb-4 font-bold">- DOKUMENTASI</p>
-        <h2 className="text-3xl md:text-3xl font-extrabold text-gray-900 dark-mode-text mb-3">
-          Dokumentasi
+        <h2 className="text-3xl uppercase md:text-3xl font-extrabold text-gray-900 dark-mode-text mb-3">
+          Beranda <span className="font-extralight">YouTube</span> Universitas
+          Banten Jaya
         </h2>
         <p className="text-gray-600 dark-mode-subtext mb-10">
-          Dokumentasi Kegiatan di Fakultas FKIP Universitas Banten Jaya
+          Dokumentasi Kegiatan di Universitas Banten Jaya
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           {loadingDocs
             ? [...Array(3)].map((_, i) => (
                 <div key={i} className="space-y-4 animate-pulse">
@@ -411,7 +402,8 @@ const App = () => {
                   <div className="h-5 bg-gray-400 rounded"></div>
                 </div>
               ))
-            : docs.map((item) => (
+            : // : docs.map((item) => (
+              docs.slice(0, visibleDocs).map((item) => (
                 <div key={item.id} className="group">
                   <div className="relative overflow-hidden rounded-lg shadow-lg">
                     <iframe
@@ -438,12 +430,34 @@ const App = () => {
                 </div>
               ))}
         </div>
+        {!loadingDocs && visibleDocs < docs.length && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setVisibleDocs((prev) => prev + 3)}
+              className="
+        flex items-center gap-2
+        px-4 py-2
+        border border-blue-500
+        text-blue-600 font-medium
+        rounded-lg
+        hover:bg-blue-500 hover:text-white
+        transition
+      "
+            >
+              Load More
+              <i className="ri-arrow-down-s-line text-xl group-hover:translate-y-1 transition"></i>
+            </button>
+          </div>
+        )}
       </section>
 
-      {loadingDekan ? (
+      {/* {loadingDekan ? (
         <DekanSkeleton />
       ) : dekan ? (
-        <section className="relative flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20" data-aos="fade-up">
+        <section
+          className="relative flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20"
+          data-aos="fade-up"
+        >
           <div className="absolute -top-12 -left-10 opacity-30 animate-float blur-[0.5px]">
             <svg
               width="140"
@@ -510,14 +524,12 @@ const App = () => {
           </div>
 
           <div className="md:w-1/2 flex justify-center mb-10 md:mb-0 relative">
-            {/* Slazz Background */}
             <img
               src={Slazz}
               alt="Element Slazz"
               className="absolute z-0 w-[400px] md:w-[420px] opacity-90"
             />
 
-            {/* Foto Dekan */}
             <img
               src={
                 dekan ? `http://fkip-dash.test/storage/${dekan.image}` : Kepsek
@@ -532,7 +544,7 @@ const App = () => {
           <i className="ri-information-line text-5xl text-gray-400"></i>
           <p className="text-gray-500 mt-3">Belum Kata Sambutan Dekan.</p>
         </div>
-      )}
+      )} */}
 
       {/* {loadingAbout ? (
         <AboutSkeleton />
@@ -606,7 +618,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="py-8">
+      <section className="py-8 bg-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           {loadingPartners && <PartnerSkeleton />}
 

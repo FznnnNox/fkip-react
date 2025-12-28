@@ -278,7 +278,7 @@ const App = () => {
         />
       </section>
 
-      {loadingNews ? (
+      {/* {loadingNews ? (
         <NewsSkeleton />
       ) : news.length > 0 ? (
         <section
@@ -374,7 +374,109 @@ const App = () => {
             Belum ada data berita yang dipublikasikan.
           </p>
         </div>
-      )}
+      )} */}
+      <section
+        className="relative py-16 px-6 md:px-20 dark:bg-gray-900"
+        data-aos="fade-up"
+      >
+        <div className="absolute top-4 right-4 opacity-25 animate-float-slow blur-[1px]">
+          <svg
+            width="140"
+            height="140"
+            viewBox="0 0 24 24"
+            className="rotate-12"
+          >
+            <polygon
+              points="12,2 22,22 2,22"
+              fill="none"
+              stroke="#0046FF"
+              strokeWidth="1.6"
+            />
+          </svg>
+        </div>
+
+        <p className="text-blue-400 mb-4 font-bold">- BERITA</p>
+        <h2 className="text-3xl md:text-3xl font-extrabold text-gray-900 dark-mode-text mb-6">
+          BERITA TERBARU FKIP{" "}
+          <span className="font-extralight">UNIVERSITAS</span> BANTEN JAYA
+        </h2>
+
+        {loadingNews ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="animate-pulse space-y-4">
+                <div className="w-full h-56 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+                <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                <div className="h-4 w-1/2 bg-gray-200 dark:bg-gray-600 rounded"></div>
+              </div>
+            ))}
+          </div>
+        ) : news.length > 0 ? (
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={3}
+            loop
+            autoplay={{ delay: 4000 }}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {news.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="relative group overflow-hidden rounded-lg">
+                  <img
+                    src={`http://fkip-dash.test/storage/${item.thumbnail}`}
+                    alt={item.title}
+                    className="w-full h-56 rounded-lg object-cover mb-4 transition-transform duration-500 group-hover:scale-110"
+                  />
+
+                  <div className="absolute inset-0 bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <Link
+                      to={`/berita/detail/${item.id}`}
+                      className="text-white text-lg font-semibold border border-white/70 px-4 py-2 rounded-lg hover:bg-white/20 transition"
+                    >
+                      Baca Selengkapnya
+                    </Link>
+                  </div>
+                </div>
+
+                <Link to={`/berita/detail/${item.id}`}>
+                  <h3 className="text-base capitalize font-normal dark-mode-text hover:text-blue-600 transition mt-4 mb-4">
+                    {item.title}
+                  </h3>
+                </Link>
+
+                <p className="dark-mode-text text-sm flex items-center gap-2">
+                  <i className="ri-calendar-2-line"></i>
+                  {new Date(item.created_at).toLocaleDateString("id-ID", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+
+                  {item.category && (
+                    <>
+                      <span className="mx-2">•</span>
+                      <i className="ri-price-tag-3-line"></i>
+                      {item.category}
+                    </>
+                  )}
+                </p>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <div className="text-center py-12">
+            <i className="ri-information-line text-5xl text-gray-400"></i>
+            <p className="text-gray-500 mt-3">
+              Belum ada data berita yang dipublikasikan.
+            </p>
+          </div>
+        )}
+      </section>
 
       <section
         className="py-16 px-6 md:px-20 dark:bg-gray-900"

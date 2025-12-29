@@ -16,25 +16,25 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import Typed from "typed.js";
 
-// const DekanSkeleton = () => (
-//   <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20 animate-pulse">
-//     {/* Content Skeleton */}
-//     <div className="md:w-1/2">
-//       <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
-//       <div className="h-8 w-3/5 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
-//       <div className="space-y-4">
-//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
-//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
-//         <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-//       </div>
-//       <div className="h-4 w-36 bg-blue-400 rounded-full mt-6"></div>
-//     </div>
-//     <div className="md:w-1/2 flex justify-center mb-10 md:mb-0">
-//       <div className="rounded-2xl shadow-2xl w-[400px] md:w-[420px] h-[400px] bg-gray-400 dark:bg-gray-600"></div>
-//     </div>
-//   </section>
-// );
+const DekanSkeleton = () => (
+  <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20 animate-pulse">
+    {/* Content Skeleton */}
+    <div className="md:w-1/2">
+      <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
+      <div className="h-8 w-3/5 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
+      <div className="space-y-4">
+        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
+        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
+        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+      </div>
+      <div className="h-4 w-36 bg-blue-400 rounded-full mt-6"></div>
+    </div>
+    <div className="md:w-1/2 flex justify-center mb-10 md:mb-0">
+      <div className="rounded-2xl shadow-2xl w-[400px] md:w-[420px] h-[400px] bg-gray-400 dark:bg-gray-600"></div>
+    </div>
+  </section>
+);
 
 const NewsSkeleton = () => (
   <section className="py-16 px-6 md:px-20 dark:bg-gray-900 animate-pulse">
@@ -69,7 +69,7 @@ const PartnerSkeleton = () => (
 
 const App = () => {
   // const [about, setAbout] = useState(null);
-  // const [dekan, setDekan] = useState(null);
+  const [dekan, setDekan] = useState(null);
   const [news, setNews] = useState([]);
   const [docs, setDocs] = useState([]);
   const [partners, setPartners] = useState([]);
@@ -77,7 +77,7 @@ const App = () => {
   // Load More
   const [visibleDocs, setVisibleDocs] = useState(6);
 
-  // const [loadingDekan, setLoadingDekan] = useState(true);
+  const [loadingDekan, setLoadingDekan] = useState(true);
   const [loadingNews, setLoadingNews] = useState(true);
   const [loadingDocs, setLoadingDocs] = useState(true);
   const [loadingPartners, setLoadingPartners] = useState(true);
@@ -101,20 +101,20 @@ const App = () => {
   // }, []);
 
   // Get Dekan
-  // useEffect(() => {
-  //   setLoadingDekan(true);
-  //   api
-  //     .get("/dekan")
-  //     .then((res) => {
-  //       setDekan(res.data.data);
-  //     })
-  //     .catch((err) => {
-  //       console.error("Gagal fetch API:", err);
-  //     })
-  //     .finally(() => {
-  //       setLoadingDekan(false);
-  //     });
-  // }, []);
+  useEffect(() => {
+    setLoadingDekan(true);
+    api
+      .get("/dekan")
+      .then((res) => {
+        setDekan(res.data.data);
+      })
+      .catch((err) => {
+        console.error("Gagal fetch API:", err);
+      })
+      .finally(() => {
+        setLoadingDekan(false);
+      });
+  }, []);
 
   // Get News Fakultas
   useEffect(() => {
@@ -411,70 +411,65 @@ const App = () => {
               </div>
             ))}
           </div>
-        ) : news.length > 0 ? (
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={3}
-            loop
-            autoplay={{ delay: 4000 }}
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {news.map((item) => (
-              <SwiperSlide key={item.id}>
-                <div className="relative group overflow-hidden rounded-lg">
-                  <img
-                    src={`http://fkip-dash.test/storage/${item.thumbnail}`}
-                    alt={item.title}
-                    className="w-full h-56 rounded-lg object-cover mb-4 transition-transform duration-500 group-hover:scale-110"
-                  />
-
-                  <div className="absolute inset-0 bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <Link
-                      to={`/berita/detail/${item.id}`}
-                      className="text-white text-lg font-semibold border border-white/70 px-4 py-2 rounded-lg hover:bg-white/20 transition"
-                    >
-                      Baca Selengkapnya
-                    </Link>
-                  </div>
-                </div>
-
-                <Link to={`/berita/detail/${item.id}`}>
-                  <h3 className="text-base capitalize font-normal dark-mode-text hover:text-blue-600 transition mt-4 mb-4">
-                    {item.title}
-                  </h3>
-                </Link>
-
-                <p className="dark-mode-text text-sm flex items-center gap-2">
-                  <i className="ri-calendar-2-line"></i>
-                  {new Date(item.created_at).toLocaleDateString("id-ID", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-
-                  {item.category && (
-                    <>
-                      <span className="mx-2">•</span>
-                      <i className="ri-price-tag-3-line"></i>
-                      {item.category}
-                    </>
-                  )}
-                </p>
-              </SwiperSlide>
-            ))}
-          </Swiper>
         ) : (
-          <div className="text-center py-12">
-            <i className="ri-information-line text-5xl text-gray-400"></i>
-            <p className="text-gray-500 mt-3">
-              Belum ada data berita yang dipublikasikan.
-            </p>
-          </div>
+          news.length > 0 && (
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={3}
+              loop
+              autoplay={{ delay: 4000 }}
+              breakpoints={{
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+            >
+              {news.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className="relative group overflow-hidden rounded-lg">
+                    <img
+                      src={`http://fkip-dash.test/storage/${item.thumbnail}`}
+                      alt={item.title}
+                      className="w-full h-56 rounded-lg object-cover mb-4 transition-transform duration-500 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                      <Link
+                        to={`/berita/detail/${item.id}`}
+                        className="text-white text-lg font-semibold border border-white/70 px-4 py-2 rounded-lg hover:bg-white/20 transition"
+                      >
+                        Baca Selengkapnya
+                      </Link>
+                    </div>
+                  </div>
+
+                  <Link to={`/berita/detail/${item.id}`}>
+                    <h3 className="text-base capitalize font-normal dark-mode-text hover:text-blue-600 transition mt-4 mb-4">
+                      {item.title}
+                    </h3>
+                  </Link>
+
+                  <p className="dark-mode-text text-sm flex items-center gap-2">
+                    <i className="ri-calendar-2-line"></i>
+                    {new Date(item.created_at).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+
+                    {item.category && (
+                      <>
+                        <span className="mx-2">•</span>
+                        <i className="ri-price-tag-3-line"></i>
+                        {item.category}
+                      </>
+                    )}
+                  </p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )
         )}
       </section>
 
@@ -553,7 +548,7 @@ const App = () => {
         )}
       </section>
 
-      {/* {loadingDekan ? (
+      {loadingDekan ? (
         <DekanSkeleton />
       ) : dekan ? (
         <section
@@ -604,25 +599,37 @@ const App = () => {
           </div>
 
           <div className="md:w-1/2">
-            <h3 className="uppercase text-sm text-gray-500 mb-3 tracking-widest dark-mode-subtext">
-              DEKAN FKIP UNBAJA
+            <h3 className="text-sm mb-3 tracking-widest dark-mode-subtext">
+              <i class="ri-user-3-fill"></i> Sambutan
             </h3>
 
-            <h2 className="text-3xl md:text-3xl font-extrabold text-gray-900 dark-mode-text mb-6">
-              {dekan?.name_dekan}
-            </h2>
+            <div className="border-l-4 border-blue-600 pl-4 mt-6">
+              <h2 className="text-3xl font-[200] uppercase md:text-3xl text-gray-900 dark-mode-text mb-6">
+                <span className="text-blue-600 font-bold">Dekan</span> Fakultas
+                Keguruan dan Ilmu Pendidikan <br />{" "}
+                <span className="text-blue-600 font-bold">
+                  Universitas Banten Jaya
+                </span>
+              </h2>
+            </div>
 
             <div
               className="text-gray-700 dark-mode-subtext text-justify text-lg leading-relaxed mb-4 space-y-4"
               dangerouslySetInnerHTML={{ __html: dekan?.content }}
             ></div>
 
-            <a
+            {/* <a
               href="#"
               className="text-blue-600 font-semibold hover:underline mt-2 inline-block"
             >
-              Baca Selengkapnya →
-            </a>
+              {dekan?.name_dekan}
+            </a> */}
+            <div className="border-l-4 border-blue-600 pl-4 mt-6">
+              <p className="text-xl font-normal text-gray-900 dark-mode-text">
+                {dekan?.name_dekan}
+              </p>
+              <p className="text-sm text-gray-500">Dekan FKIP UNBAJA</p>
+            </div>
           </div>
 
           <div className="md:w-1/2 flex justify-center mb-10 md:mb-0 relative">
@@ -646,7 +653,7 @@ const App = () => {
           <i className="ri-information-line text-5xl text-gray-400"></i>
           <p className="text-gray-500 mt-3">Belum Kata Sambutan Dekan.</p>
         </div>
-      )} */}
+      )}
 
       {/* {loadingAbout ? (
         <AboutSkeleton />

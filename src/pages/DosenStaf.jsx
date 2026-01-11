@@ -180,8 +180,7 @@ const DosenStaf = () => {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {loading
-              ?
-                [...Array(8)].map((_, i) => <SkeletonCard key={i} />)
+              ? [...Array(8)].map((_, i) => <SkeletonCard key={i} />)
               : data.length > 0
               ? data.map((dosen, index) => (
                   <div
@@ -200,16 +199,15 @@ const DosenStaf = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                       /> */}
                       <img
-  src={
-    dosen.photo
-      ? `https://fkip-unbaja.dev-project.web.id/storage/${dosen.photo}`
-      : "/default.jpg"
-  }
-  alt={dosen.name}
-  className={`w-full h-full object-cover group-hover:scale-110 transition duration-500 
+                        src={
+                          dosen.photo
+                            ? `https://fkip-unbaja.dev-project.web.id/storage/${dosen.photo}`
+                            : "/default.jpg"
+                        }
+                        alt={dosen.name}
+                        className={`w-full h-full object-cover group-hover:scale-110 transition duration-500 
     ${!dosen.photo ? "default-user-icon" : ""}`}
- />
-
+                      />
                     </div>
 
                     {/* BODY */}
@@ -225,7 +223,7 @@ const DosenStaf = () => {
                       <div className="mt-4 h-px bg-slate-200 dark:bg-gray-700"></div>
 
                       <div className="mt-3 text-xs">
-                        NIP: {dosen.nip || "-"}
+                        NIP: {dosen.nidn || "-"}
                       </div>
                     </div>
                   </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://fkip-dash.test/api",
+  baseURL: "https://fkip-unbaja.dev-project.web.id/api",
   headers: {
     "Content-Type": "application/json",
   },

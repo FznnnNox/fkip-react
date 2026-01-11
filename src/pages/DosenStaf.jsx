@@ -223,7 +223,7 @@ const DosenStaf = () => {
                       <div className="mt-4 h-px bg-slate-200 dark:bg-gray-700"></div>
 
                       <div className="mt-3 text-xs">
-                        NIP: {dosen.nidn || "-"}
+                        NIDN: {dosen.nidn || "-"}
                       </div>
                     </div>
                   </div>

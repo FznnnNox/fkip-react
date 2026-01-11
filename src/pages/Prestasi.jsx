@@ -226,7 +226,7 @@ const Prestasi = () => {
                       <img
                         src={
                           item.image
-                            ? `http://fkip-dash.test/storage/${item.image}`
+                            ? `https://fkip-unbaja.dev-project.web.id/storage/${item.image}`
                             : "/default.jpg"
                         }
                         alt={item.title}

@@ -202,7 +202,7 @@ const DosenStaf = () => {
                       <img
   src={
     dosen.photo
-      ? `http://fkip-dash.test/storage/${dosen.photo}`
+      ? `https://fkip-unbaja.dev-project.web.id/storage/${dosen.photo}`
       : "/default.jpg"
   }
   alt={dosen.name}

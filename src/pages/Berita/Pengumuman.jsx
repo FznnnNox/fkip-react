@@ -69,7 +69,7 @@ const Pengumuman = () => {
                 <div className="flex h-full flex-col" key={index}>
                   <div className="w-full overflow-hidden rounded-sm">
                     <img
-                      src={`http://fkip-dash.test/storage/${item.thumbnail}`}
+                      src={`https://fkip-unbaja.dev-project.web.id/storage/${item.thumbnail}`}
                       alt={item.title}
                       className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                     />

@@ -93,7 +93,7 @@ const Organisasi = () => {
                   <img
                       src={
                         data.image
-                          ? `http://fkip-dash.test/storage/${data.image}`
+                          ? `https://fkip-unbaja.dev-project.web.id/storage/${data.image}`
                           : "/default.jpg"
                       }
                       alt={data.title}

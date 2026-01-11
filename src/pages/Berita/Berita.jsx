@@ -107,7 +107,7 @@ const Berita = () => {
                 <Link to={`/berita/detail/${item.id}`} className="block">
                   <div className="w-full overflow-hidden rounded-lg">
                     <img
-                      src={`http://fkip-dash.test/storage/${item.thumbnail}`}
+                      src={`https://fkip-unbaja.dev-project.web.id/storage/${item.thumbnail}`}
                       alt={item.title}
                       className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                     />

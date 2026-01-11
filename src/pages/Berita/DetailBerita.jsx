@@ -112,7 +112,7 @@ const DetailBerita = () => {
 
           {news.thumbnail && (
             <img
-              src={`http://fkip-dash.test/storage/${news.thumbnail}`}
+              src={`https://fkip-unbaja.dev-project.web.id/storage/${news.thumbnail}`}
               alt={news.title}
               className="rounded-lg shadow mb-6 w-full object-cover max-h-[450px]"
             />

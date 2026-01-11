@@ -58,12 +58,12 @@ const SeaTeacher = () => {
                   className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg"
                   onClick={() =>
                     setSelectedImage(
-                      `http://fkip-dash.test/storage/${item.image}`
+                      `https://fkip-unbaja.dev-project.web.id/storage/${item.image}`
                     )
                   }
                 >
                   <img
-                    src={`http://fkip-dash.test/storage/${item.image}`}
+                    src={`https://fkip-unbaja.dev-project.web.id/storage/${item.image}`}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />

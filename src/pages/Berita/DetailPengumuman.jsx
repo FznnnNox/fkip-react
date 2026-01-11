@@ -115,7 +115,7 @@ const DetailPengumuman = () => {
           {/* Thumbnail */}
           {announcement.thumbnail && (
             <img
-              src={`http://fkip-dash.test/storage/${announcement.thumbnail}`}
+              src={`https://fkip-unbaja.dev-project.web.id/storage/${announcement.thumbnail}`}
               alt={announcement.title}
               className="rounded-lg shadow mb-6 w-full object-cover max-h-[450px]"
             />

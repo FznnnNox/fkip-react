@@ -5,90 +5,41 @@ import Logo from "../assets/logo-fkip.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  // const [darkMode, setDarkMode] = useState(
-  //   localStorage.getItem("theme") === "dark"
-  // );
-   const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
 
-  // useEffect(() => {
-  //   const handleScroll = () => setIsScrolled(window.scrollY > 50);
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
-  // // Efek untuk mengontrol Dark Mode
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.body.classList.add("dark-mode");
-  //     localStorage.setItem("theme", "dark");
-  //   } else {
-  //     document.body.classList.remove("dark-mode");
-  //     localStorage.setItem("theme", "light");
-  //   }
-  // }, [darkMode]);
-
-  // useEffect(() => {
-  //   if (isMobileMenuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-  //   // Cleanup function: Pastikan overflow di-reset saat komponen unmount
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //   };
-  // }, [isMobileMenuOpen]);
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* =========================
-     INIT THEME (WAJIB)
-  ========================= */
+  // Efek untuk mengontrol Dark Mode
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
+    if (darkMode) {
       document.body.classList.add("dark-mode");
-      setDarkMode(true);
+      localStorage.setItem("theme", "dark");
     } else {
       document.body.classList.remove("dark-mode");
-      setDarkMode(false);
+      localStorage.setItem("theme", "light");
     }
-  }, []);
-
-  /* =========================
-     SYNC THEME
-  ========================= */
-  useEffect(() => {
-    document.body.classList.toggle("dark-mode", darkMode);
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
-  /* =========================
-     MOBILE OVERFLOW FIX
-  ========================= */
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    // Cleanup function: Pastikan overflow di-reset saat komponen unmount
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
-
-  /* =========================
-     MOBILE CACHE FIX (OPTIONAL)
-  ========================= */
-  useEffect(() => {
-    window.addEventListener("pageshow", () => {
-      const theme = localStorage.getItem("theme");
-      document.body.classList.toggle("dark-mode", theme === "dark");
-    });
-  }, []);
 
   // Fungsi untuk menutup semua menu/dropdown
   const closeAllMenus = () => {
@@ -119,6 +70,20 @@ const Navbar = () => {
 
   return (
     <>
+      {/* <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#0b0f19]/60 backdrop-blur-md shadow-lg border-b border-white/10"
+            : "bg-transparent"
+        }`}
+      > */}
+      {/* <nav
+    className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-blue-800/90 backdrop-blur-md shadow-lg border-b border-blue-500" // Biru gelap dengan opacity 90%
+          : "bg-transparent"
+    }`}
+> */}
       <nav
         className="fixed top-0 left-0 w-full z-50 transition-all duration-500
              bg-blue-700/90 backdrop-blur-md shadow-lg border-b border-blue-500"
@@ -480,6 +445,14 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center space-x-4">
+            {/* <button
+              onClick={() => setDarkMode(!darkMode)}
+              className={`p-2 rounded-md transition ${
+                darkMode || isScrolled
+                  ? "text-gray-200 hover:bg-white/10"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            > */}
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-md transition text-white hover:bg-white/10"

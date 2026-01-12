@@ -186,7 +186,7 @@ const Prestasi = () => {
       {loading ? (
         <SkeletonPrestasi />
       ) : (
-        <div className="pt-32 pb-24 min-h-screen dark:bg-gray-900 px-5 md:px-10">
+        <div className="pt-32 pb-24 min-h-screen px-5 md:px-10">
           <div className="max-w-6xl mx-auto">
             {/* Judul */}
             <h1 className="text-5xl md:text-4xl font-extrabold text-left dark:text-white mb-6">

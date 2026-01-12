@@ -57,7 +57,7 @@ const VisiMisi = () => {
   return (
     <>
       <Navbar />
-      <div className="relative pt-32 pb-24 min-h-screen dark:bg-gray-900 px-6 md:px-20">
+      <div className="relative pt-32 pb-24 min-h-screen px-6 md:px-20">
         <div className="absolute top-24 -left-10 opacity-30 animate-float-slow">
           <svg width="180" height="180">
             <circle cx="90" cy="90" r="75" fill="#0046FF" stroke="none" />

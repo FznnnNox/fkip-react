@@ -245,7 +245,7 @@ const Prodi = () => {
     <>
       <Navbar />
 
-      <div className="pt-32 pb-24 min-h-screen dark:bg-gray-900 px-6 md:px-20">
+      <div className="pt-32 pb-24 min-h-screen px-6 md:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <p className="text-center text-blue-600 dark:text-blue-400 font-semibold mb-2">

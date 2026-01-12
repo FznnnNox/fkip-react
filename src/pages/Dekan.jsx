@@ -47,7 +47,7 @@ const Dekan = () => {
       <Navbar />
       {loading && <SkeletonDekan />}
       {!loading && data ? (
-        <div className="pt-32 pb-24 min-h-screen dark:bg-gray-900 px-6 md:px-20">
+        <div className="pt-32 pb-24 min-h-screen px-6 md:px-20">
           <div className="max-w-5xl mx-auto">
             <p className="text-center text-blue-600 dark:text-blue-400 font-semibold mb-2">
               DEKAN FKIP UNIVERSITAS BANTEN JAYA

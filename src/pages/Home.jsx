@@ -165,7 +165,7 @@ const App = () => {
       </section>
 
       <section
-        className="relative py-16 px-6 md:px-20 dark:bg-gray-900"
+        className="relative py-16 px-6 md:px-20"
         data-aos="fade-up"
       >
         <div className="absolute top-4 right-4 opacity-25 animate-float-slow blur-[1px]">
@@ -263,7 +263,7 @@ const App = () => {
       </section>
 
       <section
-        className="py-16 px-6 md:px-20 dark:bg-gray-900"
+        className="py-16 px-6 md:px-20"
         data-aos="fade-up"
       >
         <p className="text-blue-400 mb-4 font-bold">- DOKUMENTASI</p>

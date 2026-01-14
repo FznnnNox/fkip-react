@@ -5,7 +5,7 @@ import Logo from "../assets/logo-ubj.png"
 const Footer = () => {
   return (
     <div>
-      <footer className="py-16 px-6 text-[#93a2b8] bg-[#121a29] md:px-20 border-t border-gray-600">
+      <footer className="mt-20 py-16 px-6 text-[#93a2b8] bg-[#121a29] md:px-20 border-t border-gray-600">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 border-b border-gray-700 pb-10">
           {/* Column 1 - Brand */}
           <div className="md:col-span-1">

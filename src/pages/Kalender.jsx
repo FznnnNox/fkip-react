@@ -52,7 +52,7 @@ const Kalender = () => {
               {calendar.map((item, i) => (
                 <div key={i} className="p-4">
                   <img
-                    src={`https://fkip-unbaja.dev-project.web.id/storage/${item.image}`}
+                    src={`https://fkip-ubj.dev-project.biz.id/storage/${item.image}`}
                     alt={item.title}
                     className="w-full h-auto shadow-md rounded"
                   />

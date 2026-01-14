@@ -48,7 +48,7 @@ const Struktur = () => {
           {!loading && structure.length > 0 && (
             <div className="overflow-hidden rounded-xl shadow border border-blue-400">
               <img
-                src={`https://fkip-unbaja.dev-project.web.id/storage/${structure[0].image}`}
+                src={`https://fkip-ubj.dev-project.biz.id/storage/${structure[0].image}`}
                 alt={structure[0].title}
                 className="w-full"
               />

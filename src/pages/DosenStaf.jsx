@@ -69,7 +69,7 @@
 //                             : "/default.jpg"
 //                         }
 //                         alt={dosen.name}
-//                         className={`w-full h-full object-contain group-hover:scale-110 transition duration-500 
+//                         className={`w-full h-full object-contain group-hover:scale-110 transition duration-500
 //     ${!dosen.photo ? "default-user-icon" : ""}`}
 //                       />
 //                     </div>
@@ -162,7 +162,7 @@
 
 //           {/* TITLE */}
 //           <h1 className="text-3xl md:text-4xl font-extrabold dark:text-white mb-12">
-//             <span className="font-light">Bertemu</span> Dosen & Staf  
+//             <span className="font-light">Bertemu</span> Dosen & Staf
 //             <br />
 //             <span className="font-light">Fakultas</span> FKIP UNBAJA
 //           </h1>
@@ -205,8 +205,8 @@
 //                     </h3>
 
 //                     {/* JABATAN */}
-//                     <span className="inline-block mt-2 px-3 py-1 text-xs font-medium rounded-full 
-//                                      bg-blue-100 text-blue-700 
+//                     <span className="inline-block mt-2 px-3 py-1 text-xs font-medium rounded-full
+//                                      bg-blue-100 text-blue-700
 //                                      dark:bg-blue-900 dark:text-blue-300">
 //                       {dosen.position}
 //                     </span>
@@ -247,9 +247,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import api from "../api";
 
-/* =========================
-   SKELETON CARD
-========================= */
 const SkeletonCard = () => (
   <div className="animate-pulse rounded-2xl overflow-hidden border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800">
     <div className="h-64 bg-gradient-to-br from-slate-300 to-slate-200 dark:from-gray-700 dark:to-gray-800"></div>
@@ -280,9 +277,6 @@ const DosenStaf = () => {
       });
   }, []);
 
-  /* =========================
-     SEARCH FILTER (OPTIMIZED)
-  ========================= */
   const filteredData = useMemo(() => {
     const keyword = search.toLowerCase();
     return data.filter((dosen) =>
@@ -305,17 +299,23 @@ const DosenStaf = () => {
 
       <section className="pt-32 pb-24 min-h-screen px-5 md:px-10">
         <div className="max-w-6xl mx-auto text-center">
-
-          {/* SUB TITLE */}
-          <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
-            Fakultas Keguruan dan Ilmu Pendidikan
-          </p>
+          <div className="flex justify-center mb-4">
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1 rounded-full
+                   text-sm font-semibold
+                   bg-blue-100 text-blue-700
+                   dark:bg-blue-900 dark:text-blue-300"
+            >
+              <i className="ri-team-line"></i>
+              Fakultas Keguruan & Ilmu Pendidikan
+            </span>
+          </div>
 
           {/* TITLE */}
-          <h1 className="text-3xl md:text-4xl font-extrabold dark:text-white mb-6">
-            <span className="font-light">Bertemu</span> Dosen & Staf  
+          <h1 className="text-3xl md:text-4xl font-extrabold dark:text-white mb-6 leading-tight">
+            <span className="font-light">Bertemu</span> Dosen & Staf
             <br />
-            <span className="font-light">Fakultas</span> FKIP UNBAJA
+            Fakultas FKIP <span className="font-light">UNBAJA</span>
           </h1>
 
           {/* SEARCH BAR */}
@@ -335,8 +335,10 @@ const DosenStaf = () => {
               />
 
               {/* ICON SEARCH */}
-              <i className="ri-search-line absolute left-4 top-1/2 -translate-y-1/2
-                             text-gray-400 text-lg"></i>
+              <i
+                className="ri-search-line absolute left-4 top-1/2 -translate-y-1/2
+                             text-gray-400 text-lg"
+              ></i>
 
               {/* CLEAR BUTTON */}
               {search && (
@@ -361,11 +363,10 @@ const DosenStaf = () => {
 
           {/* GRID */}
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {loading && [...Array(8)].map((_, i) => <SkeletonCard key={i} />)}
 
-            {loading &&
-              [...Array(8)].map((_, i) => <SkeletonCard key={i} />)}
-
-            {!loading && filteredData.length > 0 &&
+            {!loading &&
+              filteredData.length > 0 &&
               filteredData.map((dosen, index) => (
                 <div
                   key={index}
@@ -380,7 +381,7 @@ const DosenStaf = () => {
                     <img
                       src={
                         dosen.photo
-                          ? `https://fkip-unbaja.dev-project.web.id/storage/${dosen.photo}`
+                          ? `https://fkip-ubj.dev-project.biz.id/storage/${dosen.photo}`
                           : "/default.jpg"
                       }
                       alt={dosen.name}
@@ -396,9 +397,11 @@ const DosenStaf = () => {
                       {dosen.back_degree && `, ${dosen.back_degree}`}
                     </h3>
 
-                    <span className="inline-block mt-2 px-3 py-1 text-xs font-medium rounded-full
+                    <span
+                      className="inline-block mt-2 px-3 py-1 text-xs font-medium rounded-full
                                      bg-blue-100 text-blue-700
-                                     dark:bg-blue-900 dark:text-blue-300">
+                                     dark:bg-blue-900 dark:text-blue-300"
+                    >
                       {dosen.position}
                     </span>
 
@@ -420,7 +423,6 @@ const DosenStaf = () => {
                 </p>
               </div>
             )}
-
           </div>
         </div>
       </section>

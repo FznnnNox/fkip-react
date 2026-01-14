@@ -56,7 +56,7 @@ const Sejarah = () => {
               <h2 className="text-2xl font-bold mb-4">{history[0].title}</h2>
 
               <div
-                className="leading-7 space-y-6"
+                className="leading-7 space-y-6 text-justify"
                 dangerouslySetInnerHTML={{ __html: history[0].content }}
               ></div>
 

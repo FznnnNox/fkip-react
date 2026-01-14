@@ -260,7 +260,7 @@ const Prodi = () => {
             <img
               src={
                 prodi.logo
-                  ? `https://fkip-unbaja.dev-project.web.id/storage/${prodi.logo}`
+                  ? `https://fkip-ubj.dev-project.biz.id/storage/${prodi.logo}`
                   : "/default.jpg"
               }
               alt="Logo Prodi"
@@ -310,7 +310,7 @@ const Prodi = () => {
                       className="overflow-hidden rounded-lg shadow dark:bg-gray-700"
                     >
                       <img
-                        src={`https://fkip-unbaja.dev-project.web.id/storage/${p.image}`}
+                        src={`https://fkip-ubj.dev-project.biz.id/storage/${p.image}`}
                         alt={p.title}
                         className="w-full h-62 object-cover"
                       />

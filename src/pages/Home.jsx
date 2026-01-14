@@ -218,7 +218,7 @@ const App = () => {
                 <SwiperSlide key={item.id}>
                   <div className="relative group overflow-hidden rounded-lg">
                     <img
-                      src={`https://fkip-unbaja.dev-project.web.id/storage/${item.thumbnail}`}
+                      src={`https://fkip-ubj.dev-project.biz.id/storage/${item.thumbnail}`}
                       alt={item.title}
                       className="w-full h-56 rounded-lg object-cover mb-4 transition-transform duration-500 group-hover:scale-110"
                     />
@@ -430,7 +430,7 @@ const App = () => {
 
             <img
               src={
-                dekan ? `https://fkip-unbaja.dev-project.web.id/storage/${dekan.image}` : Kepsek
+                dekan ? `https://fkip-ubj.dev-project.biz.id/storage/${dekan.image}` : Kepsek
               }
               alt="Foto Dekan"
               className="relative z-10 w-[380px] md:w-[400px] object-cover"
@@ -493,7 +493,7 @@ const App = () => {
                       className="flex items-center justify-center"
                     >
                       <img
-                        src={`https://fkip-unbaja.dev-project.web.id/storage/${item.image}`}
+                        src={`https://fkip-ubj.dev-project.biz.id/storage/${item.image}`}
                         alt={item.name}
                         className="max-h-18 w-auto object-contain"
                       />

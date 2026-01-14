@@ -123,7 +123,7 @@ const FasilitasFakultas = () => {
                 >
                   {/* Gambar */}
                   <img
-                    src={`https://fkip-unbaja.dev-project.web.id/storage/${item.image}`}
+                    src={`https://fkip-ubj.dev-project.biz.id/storage/${item.image}`}
                     alt={item.title}
                     className="w-full h-64 object-cover transform group-hover:scale-110 transition-all duration-500"
                   />

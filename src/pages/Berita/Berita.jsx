@@ -93,7 +93,7 @@
 //                 </button>
 //               ))}
 //             </div>
-          
+
 //           {loading ? (
 //             <div className="grid md:grid-cols-3 gap-10">
 //               {[...Array(6)].map((_, index) => (
@@ -197,8 +197,7 @@ const Berita = () => {
       : news.filter(
           (item) =>
             item.category &&
-            item.category.toLowerCase() ===
-              selectedCategory.toLowerCase()
+            item.category.toLowerCase() === selectedCategory.toLowerCase()
         );
 
   return (
@@ -207,7 +206,6 @@ const Berita = () => {
 
       <div className="pt-32 pb-24 min-h-screen px-5 md:px-10">
         <div className="max-w-6xl mx-auto">
-
           {/* HEADER */}
           <h1 className="text-4xl md:text-4xl font-extrabold dark:text-white mb-4">
             BERITA <span className="font-light">FAKULTAS</span> FKIP
@@ -216,11 +214,9 @@ const Berita = () => {
             Papan informasi digital untuk menyampaikan kegiatan dan pengumuman.
           </p>
 
-          {/* ================= CATEGORY FILTER (RESPONSIVE) ================= */}
-          {/* ================= MODERN CATEGORY FILTER ================= */}
-<div className="mb-12">
-  <div
-    className="
+          <div className="mb-12">
+            <div
+              className="
       flex items-center gap-3
       overflow-x-auto
       md:flex-wrap
@@ -232,19 +228,19 @@ const Berita = () => {
       border border-slate-200 dark:border-gray-700
       shadow-sm
     "
-  >
-    {/* ICON */}
-    <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300 shrink-0 pr-2">
-      <i className="ri-filter-3-line text-xl"></i>
-      <span className="font-semibold text-sm">Filter</span>
-    </div>
+            >
+              {/* ICON */}
+              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300 shrink-0 pr-2">
+                <i className="ri-filter-3-line text-xl"></i>
+                <span className="font-semibold text-sm">Filter</span>
+              </div>
 
-    {/* CATEGORIES */}
-    {categories.map((cat) => (
-      <button
-        key={cat}
-        onClick={() => setSelectedCategory(cat)}
-        className={`
+              {/* CATEGORIES */}
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`
           relative shrink-0
           px-5 py-2
           rounded-full
@@ -266,18 +262,17 @@ const Berita = () => {
               `
           }
         `}
-      >
-        {cat}
+                >
+                  {cat}
 
-        {/* ACTIVE DOT */}
-        {selectedCategory === cat && (
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full"></span>
-        )}
-      </button>
-    ))}
-  </div>
-</div>
-
+                  {/* ACTIVE DOT */}
+                  {selectedCategory === cat && (
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full"></span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* ================= CONTENT ================= */}
           {loading ? (
@@ -293,7 +288,7 @@ const Berita = () => {
                   <Link to={`/berita/detail/${item.id}`}>
                     <div className="overflow-hidden rounded-lg">
                       <img
-                        src={`https://fkip-unbaja.dev-project.web.id/storage/${item.thumbnail}`}
+                        src={`https://fkip-ubj.dev-project.biz.id/storage/${item.thumbnail}`}
                         alt={item.title}
                         className="w-full h-48 object-cover hover:scale-105 transition duration-300"
                       />

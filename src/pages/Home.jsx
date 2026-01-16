@@ -464,7 +464,66 @@ const App = () => {
         </div>
       </section>
 
-      <section className="py-8 bg-gray-200">
+      <section className="relative bg-[#abd5f5] py-20 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 text-center">
+
+    {/* Title */}
+    <h2 className="text-3xl md:text-4xl font-extrabold text-[#1B2B5B] tracking-wide mb-16">
+      FKIP UNBAJA DALAM ANGKA
+    </h2>
+
+    {/* Stats */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+      
+      {/* Dosen */}
+      <div className="flex flex-col items-center gap-4">
+        <span className="text-[#1B2B5B] text-4xl"><i class="ri-graduation-cap-fill"></i></span>
+        <h3 className="text-4xl font-bold text-[#1B2B5B]">848</h3>
+        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+          DOSEN
+        </p>
+      </div>
+
+      {/* Tendik */}
+      <div className="flex flex-col items-center gap-4">
+        <span className="text-[#1B2B5B] text-4xl"><i class="ri-group-fill"></i></span>
+        <h3 className="text-4xl font-bold text-[#1B2B5B]">467</h3>
+        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+          TENDIK
+        </p>
+      </div>
+
+      {/* Doktor */}
+      <div className="flex flex-col items-center gap-4">
+        <span className="text-[#1B2B5B] text-4xl"><i class="ri-graduation-cap-fill"></i></span>
+        <h3 className="text-4xl font-bold text-[#1B2B5B]">261</h3>
+        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+          DOKTOR
+        </p>
+      </div>
+
+      {/* Guru Besar */}
+      <div className="flex flex-col items-center gap-4">
+        <span className="text-[#1B2B5B] text-4xl"><i class="ri-open-arm-fill"></i></span>
+        <h3 className="text-4xl font-bold text-[#1B2B5B]">46</h3>
+        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+          GURU BESAR
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  {/* Decorative Plus */}
+  <div className="absolute right-10 top-1/3 hidden md:flex gap-4 opacity-40">
+    <span className="text-3xl text-white">+</span>
+    <span className="text-3xl text-white">+</span>
+    <span className="text-3xl text-white">+</span>
+  </div>
+</section>
+
+
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           {loadingPartners && <PartnerSkeleton />}
 

@@ -218,7 +218,7 @@ const Pengumuman = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const categories = ["All", "General", "PMB", "Umum"];
+  const categories = ["All", "Umum", "PMB"];
 
   // FILTER DATA
   const filteredData =
@@ -285,7 +285,7 @@ const Pengumuman = () => {
                 <div className="flex h-full flex-col" key={item.id}>
                   <div className="w-full overflow-hidden rounded-sm">
                     <img
-                      src={`https://fkip-ub.dev-project.biz.id/storage/${item.thumbnail}`}
+                      src={`https://fkip-ubj.dev-project.biz.id/storage/${item.thumbnail}`}
                       alt={item.title}
                       className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                     />

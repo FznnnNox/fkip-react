@@ -36,13 +36,15 @@ const Struktur = () => {
       <Navbar />
       <div className="pt-32 pb-24 min-h-screen px-6 md:px-20">
         <div className="max-w-6xl mx-auto">
-          <p className="text-center text-blue-600 dark:text-blue-400 font-semibold mb-2">
+          <p className="text-center text-blue-600 dark:text-blue-400 font-semibold text-sm md:text-base mb-2">
             Struktur
           </p>
-          <h1 className="leading-16 text-4xl md:text-4xl font-extrabold text-center text-gray-900 dark-mode-text mb-12">
-            STRUKTUR ORGANISASI <br /> FKIP <span className="font-[200]">UNIVERSITAS</span> BANTEN JAYA
+
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-900 dark-mode-text mb-10 leading-tight">
+            STRUKTUR ORGANISASI <br className="hidden sm:block" />
+            FKIP <span className="font-light">UNIVERSITAS</span> BANTEN JAYA
           </h1>
-          
+
           {loading && <SkeletonImage />}
 
           {!loading && structure.length > 0 && (

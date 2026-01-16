@@ -247,18 +247,18 @@ const Beasiswa = () => {
 
                       {/* Actions */}
                       <div className="flex flex-wrap gap-3">
-                        <button className="px-4 py-2 border border-blue-600 text-blue-600 
+                        <a href="https://spmb.unbaja.ac.id/" target="_blank" className="px-4 py-2 border border-blue-600 text-blue-600 
                           dark:border-blue-400 dark:text-blue-400 font-medium rounded-lg 
                           hover:bg-blue-50 dark:hover:bg-blue-900/20 transition text-sm">
                           Lihat Detail
-                        </button>
+                        </a>
 
                         {status === "Dibuka" && (
-                          <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 
+                          <a href="https://spmb.unbaja.ac.id/" target="_blank" className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 
                             text-white font-medium rounded-lg shadow 
                             hover:shadow-lg transition text-sm">
                             Daftar Sekarang
-                          </button>
+                          </a>
                         )}
                       </div>
                     </div>

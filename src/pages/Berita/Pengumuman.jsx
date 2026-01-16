@@ -218,7 +218,7 @@ const Pengumuman = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const categories = ["All", "Umum", "PMB", "Event", "Hari Peringatan", "Kemahasiswaan"];
+  const categories = ["All", "Umum", "Akademik", "PMB", "Kemahasiswaan", "Beasiswa", "Hari Peringatan"];
 
   // FILTER DATA
   const filteredData =
@@ -236,7 +236,7 @@ const Pengumuman = () => {
 
       <div className="pt-32 pb-24 min-h-screen dark:bg-gray-900 px-5 md:px-10">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-4xl font-extrabold text-left dark:text-white mb-6">
+          <h1 className="text-4xl md:text-4xl font-extrabold text-left dark:text-white mb-6">
             PENGUMUMAN <span className="font-[200]">FAKULTAS</span> FKIP
           </h1>
 

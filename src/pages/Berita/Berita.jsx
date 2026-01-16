@@ -185,9 +185,9 @@ const Berita = () => {
   const categories = [
     "All",
     "Umum",
-    "Pengumuman",
-    "PMB",
     "Kegiatan",
+    "PMB",
+    "Prestasi",
     "Hari Peringatan",
   ];
 

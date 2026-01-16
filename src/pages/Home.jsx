@@ -164,10 +164,7 @@ const App = () => {
         />
       </section>
 
-      <section
-        className="relative py-16 px-6 md:px-20"
-        data-aos="fade-up"
-      >
+      <section className="relative py-16 px-6 md:px-20" data-aos="fade-up">
         <div className="absolute top-4 right-4 opacity-25 animate-float-slow blur-[1px]">
           <svg
             width="140"
@@ -262,10 +259,7 @@ const App = () => {
         )}
       </section>
 
-      <section
-        className="py-16 px-6 md:px-20"
-        data-aos="fade-up"
-      >
+      <section className="py-16 px-6 md:px-20" data-aos="fade-up">
         <p className="text-blue-400 mb-4 font-bold">- DOKUMENTASI</p>
         <h2 className="text-3xl uppercase md:text-3xl font-extrabold text-gray-900 dark-mode-text mb-3">
           Beranda <span className="font-extralight">YouTube</span> Universitas
@@ -430,7 +424,9 @@ const App = () => {
 
             <img
               src={
-                dekan ? `https://fkip-ubj.dev-project.biz.id/storage/${dekan.image}` : Kepsek
+                dekan
+                  ? `https://fkip-ubj.dev-project.biz.id/storage/${dekan.image}`
+                  : Kepsek
               }
               alt="Foto Dekan"
               className="relative z-10 w-[380px] md:w-[400px] object-cover"
@@ -444,84 +440,197 @@ const App = () => {
         </div>
       )}
 
-      <section className="pmb">
-        <div className="pmb-overlay"></div>
+      <section className="relative bg-[#abd5f5] py-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#1B2B5B] tracking-widest mb-16">
+            FKIP UNBAJA DALAM ANGKA
+          </h2>
 
-        <div className="pmb-content">
-          <span className="pmb-badge">INFO PMB</span>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            {/* Dosen */}
+            <div
+              className="flex flex-col items-center gap-4"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <span className="text-[#1B2B5B] text-5xl">
+                <i className="ri-graduation-cap-fill"></i>
+              </span>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">848</h3>
+              <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+                DOSEN
+              </p>
+            </div>
 
-          <h1>Informasi Penerimaan Mahasiswa Baru</h1>
+            {/* Tendik */}
+            <div
+              className="flex flex-col items-center gap-4"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <span className="text-[#1B2B5B] text-5xl">
+                <i className="ri-group-fill"></i>
+              </span>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">467</h3>
+              <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+                TENDIK
+              </p>
+            </div>
 
-          <p>
-            Dapatkan informasi terkini tentang proses penerimaan mahasiswa baru.
-            Mulai dari jadwal pendaftaran hingga proses seleksi, semua tersedia
-            secara lengkap dan mudah diakses.
-          </p>
+            {/* Doktor */}
+            <div
+              className="flex flex-col items-center gap-4"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <span className="text-[#1B2B5B] text-5xl">
+                <i className="ri-graduation-cap-fill"></i>
+              </span>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">261</h3>
+              <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+                DOKTOR
+              </p>
+            </div>
 
-          <a href="#info" className="pmb-btn">
-            Selengkapnya
-          </a>
+            {/* Guru Besar */}
+            <div
+              className="flex flex-col items-center gap-4"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <span className="text-[#1B2B5B] text-4xl">
+                <i className="ri-open-arm-fill"></i>
+              </span>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">46</h3>
+              <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
+                GURU BESAR
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative Plus */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+          {/* SISI KANAN - Pola Grid Modern */}
+          <div
+            className="absolute right-[-20px] top-1/4 hidden md:grid grid-cols-4 gap-8 opacity-40 rotate-12"
+            data-aos="zoom-in-left"
+            data-aos-delay="500"
+          >
+            {[...Array(16)].map((_, i) => (
+              <span
+                key={i}
+                className={`text-3xl text-white font-thin ${
+                  i % 3 === 0 ? "animate-pulse" : ""
+                }`}
+              >
+                +
+              </span>
+            ))}
+          </div>
+
+          {/* SISI KIRI - Simbol Besar & Melayang */}
+          <div className="absolute left-0 top-[20] h-full w-full">
+            {/* Plus Besar Kiri Atas */}
+            <span
+              className="absolute top-[15%] left-[5%] text-7xl text-white opacity-10 font-thin blur-[1px] animate-bounce"
+              style={{ animationDuration: "5s" }}
+            >
+              <i className="ri-bard-line"></i>
+            </span>
+
+            {/* Plus Sedang Kiri Tengah */}
+            <span className="absolute top-[50%] left-[12%] text-4xl text-white opacity-20 font-light animate-pulse">
+              <i className="ri-bard-line"></i>
+            </span>
+
+            {/* Plus Kecil Kiri Bawah */}
+            <span className="absolute bottom-[20%] left-[8%] text-2xl text-white opacity-30">
+              <i className="ri-bard-line"></i>
+            </span>
+          </div>
+
+          {/* AKSEN BLUR (GLOW EFFECTS) */}
+          <div className="absolute top-[-100px] right-[-100px] w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute bottom-[-100px] left-[-100px] w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         </div>
       </section>
 
-      <section className="relative bg-[#abd5f5] py-20 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-900">
+        {/* Background dengan Overlay yang lebih gelap agar teks kontras */}
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed bg-no-repeat"
+          style={{ backgroundImage: "url('./assets/pmb.svg')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
+        </div>
 
-    {/* Title */}
-    <h2 className="text-3xl md:text-4xl font-extrabold text-[#1B2B5B] tracking-wide mb-16">
-      FKIP UNBAJA DALAM ANGKA
-    </h2>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* SISI KIRI: Teks Utama */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span>Penerimaan Mahasiswa Baru 2026</span>
+              </div>
 
-    {/* Stats */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-      
-      {/* Dosen */}
-      <div className="flex flex-col items-center gap-4">
-        <span className="text-[#1B2B5B] text-4xl"><i class="ri-graduation-cap-fill"></i></span>
-        <h3 className="text-4xl font-bold text-[#1B2B5B]">848</h3>
-        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
-          DOSEN
-        </p>
-      </div>
+              {/* Ukuran Font Heading yang lebih proporsional (text-4xl ke 6xl) */}
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-white leading-[1.1] tracking-tight">
+                Raih Masa Depan <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600">
+                  Bersama FKIP UNBAJA
+                </span>
+              </h1>
 
-      {/* Tendik */}
-      <div className="flex flex-col items-center gap-4">
-        <span className="text-[#1B2B5B] text-4xl"><i class="ri-group-fill"></i></span>
-        <h3 className="text-4xl font-bold text-[#1B2B5B]">467</h3>
-        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
-          TENDIK
-        </p>
-      </div>
+              <p className="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed">
+                Bergabunglah dengan komunitas akademik yang inovatif dan
+                kembangkan potensi terbaik Anda untuk menjadi pendidik masa
+                depan yang unggul.
+              </p>
 
-      {/* Doktor */}
-      <div className="flex flex-col items-center gap-4">
-        <span className="text-[#1B2B5B] text-4xl"><i class="ri-graduation-cap-fill"></i></span>
-        <h3 className="text-4xl font-bold text-[#1B2B5B]">261</h3>
-        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
-          DOKTOR
-        </p>
-      </div>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a href="https://spmb.unbaja.ac.id/" target="_blank" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-900/20 active:scale-95">
+                  Daftar Sekarang
+                </a>
+                <a href="https://spmb.unbaja.ac.id/" target="_blank" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm rounded-lg font-semibold transition-all">
+                  Alur Pendaftaran
+                </a>
+              </div>
+            </div>
 
-      {/* Guru Besar */}
-      <div className="flex flex-col items-center gap-4">
-        <span className="text-[#1B2B5B] text-4xl"><i class="ri-open-arm-fill"></i></span>
-        <h3 className="text-4xl font-bold text-[#1B2B5B]">46</h3>
-        <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
-          GURU BESAR
-        </p>
-      </div>
-
-    </div>
-  </div>
-
-  {/* Decorative Plus */}
-  <div className="absolute right-10 top-1/3 hidden md:flex gap-4 opacity-40">
-    <span className="text-3xl text-white">+</span>
-    <span className="text-3xl text-white">+</span>
-    <span className="text-3xl text-white">+</span>
-  </div>
-</section>
-
+            {/* SISI KANAN: Statistik/Card Box yang lebih rapi */}
+            <div className="hidden lg:block">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/50 transition-colors">
+                  <h3 className="text-3xl font-bold text-blue-400 mb-1">14+</h3>
+                  <p className="text-xs text-slate-400 uppercase font-medium">
+                    Program Studi
+                  </p>
+                </div>
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/50 transition-colors">
+                  <h3 className="text-3xl font-bold text-blue-400 mb-1">
+                    B
+                  </h3>
+                  <p className="text-xs text-slate-400 uppercase font-medium">
+                    Akreditasi BAN-PT
+                  </p>
+                </div>
+                <div className="col-span-2 p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/20 border border-white/10 backdrop-blur-md">
+                  <p className="text-sm text-slate-200 italic font-light">
+                    "Mencetak tenaga pendidik yang profesional, berkarakter, dan
+                    inovatif di era digital."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-6">

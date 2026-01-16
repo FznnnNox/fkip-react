@@ -36,46 +36,54 @@ const Sejarah = () => {
         setLoading(false);
       });
   }, []);
+return (
+  <>
+    <Navbar />
 
-  return (
-    <>
-      <Navbar />
-      <div className="pt-32 pb-24 min-h-screen px-6 md:px-20">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-center text-blue-600 dark:text-blue-400 font-semibold mb-2">
-            Sejarah Fakultas
+    <div className="pt-32 pb-24 min-h-screen px-6 md:px-20">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-center text-blue-600 dark:text-blue-400 font-semibold mb-2">
+          Sejarah Fakultas
+        </p>
+        <h1 className="text-4xl md:text-4xl font-extrabold text-center dark:text-white mb-12">
+          FKIP <span className="font-[200]">UNIVERSITAS</span> BANTEN JAYA
+        </h1>
+
+        {/* Skeleton */}
+        {loading && <SkeletonHistory />}
+
+        {/* Content */}
+        {!loading && history.length > 0 && (
+          <div className="p-6 sm:p-8 md:p-12 rounded-xl shadow-md border border-blue-300">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4">
+              {history[0].title}
+            </h2>
+
+            <div
+              className="text-sm sm:text-base leading-7 sm:leading-8 space-y-4 text-justify"
+              dangerouslySetInnerHTML={{ __html: history[0].content }}
+            ></div>
+
+            {history[0].author && (
+              <p className="mt-6 text-xs sm:text-sm text-right">
+                Penulis: {history[0].author}
+              </p>
+            )}
+          </div>
+        )}
+
+        {!loading && history.length === 0 && (
+          <p className="text-center text-gray-500 text-sm sm:text-base">
+            Tidak ada data sejarah.
           </p>
-          <h1 className="text-4xl md:text-4xl font-extrabold text-center dark:text-white mb-12">
-            FKIP <span className="font-[200]">UNIVERSITAS</span> BANTEN JAYA
-          </h1>
-
-          {loading && <SkeletonHistory />}
-
-          {!loading && history.length > 0 && (
-            <div className="p-8 md:p-12 rounded-xl shadow border border-blue-400">
-              <h2 className="text-2xl font-bold mb-4">{history[0].title}</h2>
-
-              <div
-                className="leading-7 space-y-6 text-justify"
-                dangerouslySetInnerHTML={{ __html: history[0].content }}
-              ></div>
-
-              {history[0].author && (
-                <p className="mt-6 text-sm text-right">
-                  Penulis: {history[0].author}
-                </p>
-              )}
-            </div>
-          )}
-
-          {!loading && history.length === 0 && (
-            <p className="text-center text-gray-500">Tidak ada data sejarah.</p>
-          )}
-        </div>
+        )}
       </div>
-      <Footer />
-    </>
-  );
+    </div>
+
+    <Footer />
+  </>
+);
+
 };
 
 export default Sejarah;

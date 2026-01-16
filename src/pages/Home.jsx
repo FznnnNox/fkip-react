@@ -458,7 +458,7 @@ const App = () => {
               <span className="text-[#1B2B5B] text-5xl">
                 <i className="ri-graduation-cap-fill"></i>
               </span>
-              <h3 className="text-4xl font-bold text-[#1B2B5B]">848</h3>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">82</h3>
               <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
                 DOSEN
               </p>
@@ -473,7 +473,7 @@ const App = () => {
               <span className="text-[#1B2B5B] text-5xl">
                 <i className="ri-group-fill"></i>
               </span>
-              <h3 className="text-4xl font-bold text-[#1B2B5B]">467</h3>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">24</h3>
               <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
                 TENDIK
               </p>
@@ -488,7 +488,7 @@ const App = () => {
               <span className="text-[#1B2B5B] text-5xl">
                 <i className="ri-graduation-cap-fill"></i>
               </span>
-              <h3 className="text-4xl font-bold text-[#1B2B5B]">261</h3>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">7</h3>
               <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
                 DOKTOR
               </p>
@@ -503,7 +503,7 @@ const App = () => {
               <span className="text-[#1B2B5B] text-4xl">
                 <i className="ri-open-arm-fill"></i>
               </span>
-              <h3 className="text-4xl font-bold text-[#1B2B5B]">46</h3>
+              <h3 className="text-4xl font-bold text-[#1B2B5B]">4</h3>
               <p className="tracking-widest text-sm font-semibold text-[#1B2B5B]">
                 GURU BESAR
               </p>

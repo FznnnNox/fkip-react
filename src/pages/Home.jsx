@@ -443,8 +443,8 @@ const App = () => {
       <section className="relative bg-[#abd5f5] py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#1B2B5B] tracking-widest mb-16">
-            FKIP UNBAJA DALAM ANGKA
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1B2B5B] tracking-widest mb-16">
+            UNBAJA DALAM ANGKA
           </h2>
 
           {/* Stats */}

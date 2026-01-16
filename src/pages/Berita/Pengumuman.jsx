@@ -218,7 +218,7 @@ const Pengumuman = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const categories = ["All", "Umum", "PMB"];
+  const categories = ["All", "Umum", "PMB", "Event", "Hari Peringatan", "Kemahasiswaan"];
 
   // FILTER DATA
   const filteredData =

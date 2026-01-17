@@ -1,6 +1,7 @@
 import React from "react";
 
 import Logo from "../assets/logo-ubj.png"
+import Akreditasi from "../assets/akreditas.png"
 
 const Footer = () => {
   return (
@@ -9,7 +10,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 border-b border-gray-700 pb-10">
           {/* Column 1 - Brand */}
           <div className="md:col-span-1">
-            <img src={Logo} alt="" className="w-[70px] mb-4" />
+            <div className="flex items-center gap-4">
+              <img src={Logo} alt="" className="w-[70px] mb-4" />
+              <img src={Akreditasi} alt="" className="w-[70px] mb-4" />
+            </div>
             
             <h2 className="text-2xl font-bold mb-3">
               FKIP UNBAJA

@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Slazz from "../assets/slazz.png";
 import Diksaintek from "../assets/diksaintek.png";
+import Akreditasi from "../assets/akreditas.png";
 
 import api from "../api";
 
@@ -17,21 +18,34 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Typed from "typed.js";
 
 const DekanSkeleton = () => (
-  <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-8 md:px-20 py-24 gap-20 animate-pulse">
+  <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-20 py-16 md:py-24 gap-12 md:gap-20 animate-pulse">
     {/* Content Skeleton */}
-    <div className="md:w-1/2">
-      <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
-      <div className="h-8 w-3/5 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
-      <div className="space-y-4">
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
-        <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+    <div className="w-full md:w-1/2">
+      <div className="h-3 w-24 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
+
+      <div className="h-7 md:h-8 w-full md:w-3/5 bg-gray-400 dark:bg-gray-600 rounded mb-6"></div>
+
+      <div className="space-y-3 md:space-y-4">
+        <div className="h-4 md:h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+        <div className="h-4 md:h-5 bg-gray-300 dark:bg-gray-700 rounded w-11/12"></div>
+        <div className="h-4 md:h-5 bg-gray-300 dark:bg-gray-700 rounded w-10/12"></div>
+        <div className="h-4 md:h-5 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
       </div>
-      <div className="h-4 w-36 bg-blue-400 rounded-full mt-6"></div>
+
+      <div className="h-4 w-40 bg-blue-400 rounded-full mt-6"></div>
     </div>
-    <div className="md:w-1/2 flex justify-center mb-10 md:mb-0">
-      <div className="rounded-2xl shadow-2xl w-[400px] md:w-[420px] h-[400px] bg-gray-400 dark:bg-gray-600"></div>
+
+    {/* Image Skeleton */}
+    <div className="w-full md:w-1/2 flex justify-center">
+      <div
+        className="
+          rounded-2xl shadow-2xl
+          w-[260px] h-[320px]
+          sm:w-[300px] sm:h-[360px]
+          md:w-[400px] md:h-[420px]
+          bg-gray-400 dark:bg-gray-600
+        "
+      ></div>
     </div>
   </section>
 );
@@ -53,18 +67,17 @@ const NewsSkeleton = () => (
 );
 
 const PartnerSkeleton = () => (
-  <section className="py-20 px-8 md:px-20">
-    <div className="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 animate-pulse">
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="w-full h-16 bg-gray-300 dark:bg-gray-700 rounded-lg"
-          ></div>
-        ))}
+  <div className="flex gap-6 md:gap-10 overflow-hidden">
+    {[...Array(6)].map((_, i) => (
+      <div
+        key={i}
+        className="flex-shrink-0 w-[140px] md:w-[180px] h-20 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center animate-pulse"
+      >
+        {/* Placeholder berbentuk logo kecil di tengah */}
+        <div className="w-20 h-6 bg-gray-200 dark:bg-gray-700 rounded-md"></div>
       </div>
-    </div>
-  </section>
+    ))}
+  </div>
 );
 
 const App = () => {
@@ -151,9 +164,24 @@ const App = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <section className="relative w-full overflow-hidden home-bg">
+      <section className="relative w-full overflow-hidden home-bg flex items-center justify-center">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
+
+        <div className="relative z-10 container mx-auto px-6">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 md:left-20 md:translate-x-0 animate-float-slow flex justify-center">
+            <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/20 shadow-xl">
+              <img
+                src={Akreditasi}
+                alt="Akreditasi Unggul"
+                className="h-14 md:h-24 w-auto mx-auto object-contain"
+              />
+              <p className="text-[10px] text-center mt-1 font-semibold tracking-wider uppercase opacity-80">
+                Terakreditasi Unggul
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="w-full bg-[#003fc7] flex justify-center">
@@ -397,7 +425,7 @@ const App = () => {
             </div>
 
             <div
-              className="text-gray-700 dark-mode-subtext text-justify text-lg leading-relaxed mb-4 space-y-4"
+              className="text-gray-700 dark-mode-subtext sm:text-lg text-lg leading-relaxed mb-4 space-y-4 text-justify"
               dangerouslySetInnerHTML={{ __html: dekan?.content }}
             ></div>
 
@@ -594,10 +622,18 @@ const App = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
-                <a href="https://spmb.unbaja.ac.id/" target="_blank" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-900/20 active:scale-95">
+                <a
+                  href="https://spmb.unbaja.ac.id/"
+                  target="_blank"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-900/20 active:scale-95"
+                >
                   Daftar Sekarang
                 </a>
-                <a href="https://spmb.unbaja.ac.id/" target="_blank" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm rounded-lg font-semibold transition-all">
+                <a
+                  href="https://spmb.unbaja.ac.id/"
+                  target="_blank"
+                  className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm rounded-lg font-semibold transition-all"
+                >
                   Alur Pendaftaran
                 </a>
               </div>
@@ -613,9 +649,7 @@ const App = () => {
                   </p>
                 </div>
                 <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/50 transition-colors">
-                  <h3 className="text-3xl font-bold text-blue-400 mb-1">
-                    B
-                  </h3>
+                  <h3 className="text-3xl font-bold text-blue-400 mb-1">B</h3>
                   <p className="text-xs text-slate-400 uppercase font-medium">
                     Akreditasi BAN-PT
                   </p>

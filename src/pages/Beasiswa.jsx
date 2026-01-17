@@ -182,7 +182,7 @@ const Beasiswa = () => {
 
             <h1 className="text-3xl md:text-4xl font-extrabold">
               Pusat <span className="font-light">Informasi</span>{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text font-normal text-transparent">
                 Beasiswa
               </span>
             </h1>
